@@ -1,0 +1,2 @@
+jewels = "aA", stones = "aAAbbbb"
+jewels = "z", stones = "ZZ"

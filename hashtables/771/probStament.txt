@@ -1,0 +1,58 @@
+---------[ENGLISH]---------
+
+You're given strings jewels representing the types of stones that are jewels, 
+and stones representing the stones you have. Each character in stones is a type of stone you have.
+You want to know how many of the stones you have are also jewels.
+
+Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+ 
+
+Example 1:
+
+Input: jewels = "aA", stones = "aAAbbbb"
+Output: 3
+Example 2:
+
+Input: jewels = "z", stones = "ZZ"
+Output: 0
+ 
+
+Constraints:
+
+1 <= jewels.length, stones.length <= 50
+jewels and stones consist of only English letters.
+All the characters of jewels are unique.
+
+
+
+
+
+
+---------[ESPAÑOL]---------
+
+
+Dadas las cadenas jewels, que representan los tipos de piedras que son joyas, y stones, 
+que representan las piedras que tienes. Cada carácter en stones es un tipo de piedra que tienes. 
+Quieres saber cuántas de las piedras que tienes también son joyas.
+
+Las letras son sensibles a mayúsculas y minúsculas, por lo que "a" se considera un tipo de piedra diferente de "A".
+
+Ejemplo 1:
+
+Entrada: jewels = "aA", stones = "aAAbbbb"
+
+Salida: 3
+
+Ejemplo 2:
+
+Entrada: jewels = "z", stones = "ZZ"
+
+Salida: 0
+
+Restricciones:
+
+1 <= longitud de jewels, longitud de stones <= 50
+jewels y stones constan únicamente de letras en inglés.
+Todos los caracteres de jewels son únicos.
+

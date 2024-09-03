@@ -1,0 +1,2 @@
+s = "abc", t = "bac"
+s = "abcde", t = "edbac"

@@ -1,0 +1,21 @@
+[submodule "hashtables/contracts/lib/forge-std"]
+	path = hashtables/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/1282/contracts/lib/forge-std"]
+	path = hashtables/1282/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/771/contracts/lib/forge-std"]
+	path = hashtables/771/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/1365/contracts/lib/forge-std"]
+	path = hashtables/1365/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/3146/contracts/lib/forge-std"]
+	path = hashtables/3146/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/1512/contracts/lib/forge-std"]
+	path = hashtables/1512/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/2325/contracts/lib/forge-std"]
+	path = hashtables/2325/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
