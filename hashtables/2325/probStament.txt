@@ -1,0 +1,81 @@
+---------[ENGLISH]--------------------
+You are given the strings key and message, which represent a cipher key and a secret message, respectively. 
+The steps to decode message are as follows:
+
+Use the first appearance of all 26 lowercase English letters in key as the order of the substitution table.
+Align the substitution table with the regular English alphabet.
+Each letter in message is then substituted using the table.
+Spaces ' ' are transformed to themselves.
+For example, given key = "happy boy" (actual key would have at least one instance of each letter in the alphabet), 
+we have the partial substitution table of ('h' -> 'a', 'a' -> 'b', 'p' -> 'c', 'y' -> 'd', 'b' -> 'e', 'o' -> 'f').
+Return the decoded message.
+
+ 
+
+Example 1:
+
+
+Input: key = "the quick brown fox jumps over the lazy dog", message = "vkbs bs t suepuv"
+Output: "this is a secret"
+Explanation: The diagram above shows the substitution table.
+It is obtained by taking the first appearance of each letter in "the quick brown fox jumps over the lazy dog".
+Example 2:
+
+
+Input: key = "eljuxhpwnyrdgtqkviszcfmabo", message = "zwx hnfx lqantp mnoeius ycgk vcnjrdb"
+Output: "the five boxing wizards jump quickly"
+Explanation: The diagram above shows the substitution table.
+It is obtained by taking the first appearance of each letter in "eljuxhpwnyrdgtqkviszcfmabo".
+ 
+
+Constraints:
+
+26 <= key.length <= 2000
+key consists of lowercase English letters and ' '.
+key contains every letter in the English alphabet ('a' to 'z') at least once.
+1 <= message.length <= 2000
+message consists of lowercase English letters and ' '.
+
+
+
+
+
+---------[ESPAÑOL]--------------------
+
+Claro, aquí está la traducción al español:
+
+---
+
+Te han dado las cadenas `key` y `message`, que representan una clave de cifrado y un mensaje secreto, respectivamente.
+Los pasos para decodificar el mensaje son los siguientes:
+
+1. Usa la primera aparición de las 26 letras minúsculas del alfabeto inglés en `key` como el orden de la tabla de 
+sustitución.
+2. Alinea la tabla de sustitución con el alfabeto inglés regular.
+3. Cada letra en `message` se sustituye utilizando la tabla.
+4. Los espacios ' ' se transforman en ellos mismos.
+
+Por ejemplo, dado `key = "happy boy"` (la clave real tendría al menos una instancia de cada letra del alfabeto), 
+tenemos la tabla de sustitución parcial de ('h' -> 'a', 'a' -> 'b', 'p' -> 'c', 'y' -> 'd', 'b' -> 'e', 'o' -> 'f').
+
+Devuelve el mensaje decodificado.
+
+### Ejemplo 1:
+
+**Entrada:** `key = "the quick brown fox jumps over the lazy dog"`, `message = "vkbs bs t suepuv"`  
+**Salida:** `"this is a secret"`  
+**Explicación:** El diagrama anterior muestra la tabla de sustitución. Se obtiene tomando la primera aparición de cada letra en "the quick brown fox jumps over the lazy dog".
+
+### Ejemplo 2:
+
+**Entrada:** `key = "eljuxhpwnyrdgtqkviszcfmabo"`, `message = "zwx hnfx lqantp mnoeius ycgk vcnjrdb"`  
+**Salida:** `"the five boxing wizards jump quickly"`  
+**Explicación:** El diagrama anterior muestra la tabla de sustitución. Se obtiene tomando la primera aparición de cada letra en "eljuxhpwnyrdgtqkviszcfmabo".
+
+### Restricciones:
+
+- `26 <= key.length <= 2000`
+- `key` está compuesta por letras minúsculas del inglés y espacios ' '.
+- `key` contiene cada letra del alfabeto inglés ('a' a 'z') al menos una vez.
+- `1 <= message.length <= 2000`
+- `message` está compuesta por letras minúsculas del inglés y espacios ' '.
