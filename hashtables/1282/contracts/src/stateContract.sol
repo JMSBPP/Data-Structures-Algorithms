@@ -1,131 +1,81 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract StateContract {
-    uint size;
-    uint person;
-    uint currentSize;
-    uint groupID;
-
-    bool lastPerson;
-    uint[][] groups;
-    uint lastSize;
-
-    enum state {
-        INITIAL,
-        PROGRESS,
-        MEMBERPROCESSED,
-        DONE
+contract solution {
+    enum State {
+        CLOSED,
+        OPEN
     }
 
-    state _state;
+    struct Group {
+        uint32 size;
+        uint32[] members;
+        State state;
+        uint32 availSlots;
+    }
 
-    modifier groupFilled() {
-        require(currentSize == 0, "NOT FILLED YET");
+    uint[] groups;
+
+    Group group;
+
+    uint[] groupSizes;
+
+    uint[][] finalGroups;
+
+    modifier receivingMembers(uint32 id) {
+        require(groups[id].state == State.OPEN, "NOT RECEIVING MEMBERS");
         _;
     }
 
-    modifier otherGroup() {
-        require(size < lastSize, "PERSON DOES NOT FIT IN GROUP");
-        _;
+    constructor(uint[] memory _groupSizes) {
+        groupSizes = _groupSizes;
     }
 
-    modifier receivingMembers() {
-        require(size == lastSize, "NOT VALID STATE");
-        _;
-    }
+    function createGroup(uint32 size) public {
+        uint32[] memory _members = new uint32[](size);
+        group = Group({
+            size: size,
+            members: _members,
+            state: State.OPEN,
+            availSlots: size
+        });
 
-    modifier starting() {
-        require(_state == state.INITIAL, "StateContract: Already initialized");
-        _;
-    }
-
-    modifier working() {
-        require(_state == state.PROGRESS, "StateContract: Already initialized");
-        _;
-    }
-
-    modifier lastPersonCall() {
-        require(lastPerson == true, "NOT LAST PERSON");
-        _;
-    }
-
-    modifier processing() {
-        require(_state == state.MEMBERPROCESSED, "NOT VALID STATE");
-        _;
-    }
-
-    event MemberAdded(uint indexed _person, uint indexed _group);
-    event GroupFilled(uint indexed _group);
-
-    function initialize(
-        uint _person,
-        uint _size,
-        bool _lastPerson
-    ) public starting {
-        size = _size;
-        person = _person;
-        lastPerson = _lastPerson;
-        lastSize = _size + 1;
-        currentSize = size;
-        groupID = 1;
-        _state = state.PROGRESS;
-        processor();
-    }
-
-    function work(
-        uint _person,
-        uint _size,
-        bool _lastPerson
-    ) public processing {
-        size = _size;
-        person = _person;
-        lastPerson = _lastPerson;
-        _state = state.PROGRESS;
-        processor();
-    }
-
-    function removeLastSize() internal groupFilled working {
-        lastSize = size + 1;
-    }
-
-    function createGroup() internal otherGroup working {
-        uint[] memory group;
         groups.push(group);
     }
 
-    function updateSize(uint _size) internal otherGroup working {
-        lastSize = _size;
-    }
-
-    function addMember() internal receivingMembers working {
-        groups[0].push(person);
-        currentSize -= 1;
-    }
-
-    function processor() private working {
-        if (currentSize == 0) {
-            removeLastSize();
-            emit GroupFilled(groupID);
-            groupID += 1;
-            groups.pop();
-            processor();
-        }
-        if (size < lastSize && currentSize != 0) {
-            updateSize(size);
-            currentSize = size;
-            createGroup();
-            processor();
-        }
-        if (size == lastSize && currentSize != 0) {
-            addMember();
-            currentSize -= 1;
-            emit MemberAdded(person, groupID);
+    function addMember(uint32 member, uint32 id) public receivingMembers(id) {
+        groups[id].members.push(member);
+        groups[id].availSlots -= 1;
+        if (groups[id].availSlots == 0) {
+            groups[id].state = State.CLOSED;
         }
     }
 
-    function sendGroups() external lastPersonCall working {
-        //
+    function queryOpenGroups() internal returns (uint[] memory) {
+        uint32[] memory openGroups = new uint32[](groups.length);
+        for (uint id = 0; id < groups.length; id++) {
+            if (groups[id].state == State.OPEN) {
+                openGroups.push(id);
+            }
+            return openGroups;
+        }
+    }
 
-        _state = state.DONE;
+    function processor(
+        uint person,
+        uint groupSize
+    ) public returns (uint[] memory) {
+        uint32[] memory openGroups = new uint32[](groups.length);
+        openGroups = queryOpenGroups();
+        for (uint id = 0; id < openGroups.length; id++) {
+            if (groups[openGroups[id]].size == groupSize) {
+                addMember(person, openGroups[id]);
+            } else {
+                createGroup(groupSize);
+                addMember(person, groups[groups.length - 1].members);
+            }
+        }
+
+        return groups;
     }
 }
