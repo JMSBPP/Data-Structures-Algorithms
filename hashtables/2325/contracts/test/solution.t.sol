@@ -9,10 +9,9 @@ contract SolutionUnitTest is Test {
     Server server;
     Client client;
 
-    address fakeSenderAddress = makeAddr("fakeSender");
     address fakeClientAddress = makeAddr("fakeClient");
     function setUp() public {
-        server = new Server(fakeSenderAddress, fakeClientAddress);
+        server = new Server(fakeClientAddress);
         client = new Client();
     }
 
@@ -55,12 +54,12 @@ contract SolutionUnitTest is Test {
     function testServerMessage1() external {
         string memory message = "vkbs bs t suepuv";
         string memory keys = "the quick brown fox jumps over the lazy dog";
-        server.revealMessage(keys, message);
+        server.revealMessage(fakeClientAddress, keys, message);
     }
 
     function testServerMessge2() external {
         string memory message = "zwx hnfx lqantp mnoeius ycgk vcnjrdb";
         string memory keys = "eljuxhpwnyrdgtqkviszcfmabo";
-        server.revealMessage(keys, message);
+        server.revealMessage(fakeClientAddress, keys, message);
     }
 }
