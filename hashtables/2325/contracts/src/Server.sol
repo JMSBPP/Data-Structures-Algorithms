@@ -14,11 +14,11 @@ contract Server is UniqueStrings, AbstractCallback {
 
     mapping(string => string) public cipherMap;
 
-    event Response(string decryptedMessage);
+    event Response(address _client, string decryptedMessage);
+
     constructor(
-        address _callback_sender,
         address _client
-    ) payable AbstractCallback(_callback_sender) {
+    ) payable AbstractCallback(0x0000000000000000000000000000000000000000) {
         client = IClient(_client);
     }
 
@@ -85,7 +85,11 @@ contract Server is UniqueStrings, AbstractCallback {
         return cipherMap[key];
     }
 
-    function revealMessage(string memory keys, string memory _message) public {
+    function revealMessage(
+        address _client,
+        string memory keys,
+        string memory _message
+    ) public {
         string[] memory message = TrimstrHandler(_message, true, false);
         getKeyMappings(keys);
         bytes memory concatenatedBytes = new bytes(message.length);
@@ -98,6 +102,6 @@ contract Server is UniqueStrings, AbstractCallback {
                 currentIndex++;
             }
         }
-        emit Response(string(concatenatedBytes));
+        emit Response(_client, string(concatenatedBytes));
     }
 }
