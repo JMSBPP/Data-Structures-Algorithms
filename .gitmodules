@@ -19,3 +19,12 @@
 [submodule "hashtables/2325/contracts/lib/forge-std"]
 	path = hashtables/2325/contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "hashtables/3/contracts/lib/forge-std"]
+	path = hashtables/3/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "linkedLists/contracts/lib/forge-std"]
+	path = linkedLists/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "linkedLists/21/contracts/lib/forge-std"]
+	path = linkedLists/21/contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
