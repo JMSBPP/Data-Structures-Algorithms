@@ -1,4 +1,7 @@
 # EVM Driven Algorithms and Data Structures Exercises
+<div style="text-align: center;">
+  <img src="images/evm.png" alt="Description" width="300"/>
+</div>
 
 ## About
 
