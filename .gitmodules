@@ -28,3 +28,9 @@
 [submodule "linkedLists/21/contracts/lib/forge-std"]
 	path = linkedLists/21/contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "linkedLists/linkedList/lib/solidity-linked-list"]
+	path = linkedLists/linkedList/lib/solidity-linked-list
+	url = https://github.com/vittominacori/solidity-linked-list
+[submodule "bitmasking/29/lib/forge-std"]
+	path = bitmasking/29/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
