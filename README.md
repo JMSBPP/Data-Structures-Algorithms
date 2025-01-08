@@ -22,5 +22,5 @@ To get started with the exercises, clone the repository and explore the differen
 
 ```bash
 git clone https://github.com/JMSBPP/EVM_Driven_Algorithms_and_Data_Structures_Exercises.git
-cd evm-driven-algorithms
+cd EVM_Driven_Algorithms_and_Data_Structures_Exercises
 ```
