@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Data-Structures-Algorithms
-=======
 # EVM Driven Algorithms and Data Structures Exercises
 
 ## About
@@ -24,6 +21,6 @@ This repository is dedicated to exploring and solving LeetCode exercises focused
 To get started with the exercises, clone the repository and explore the different directories corresponding to each focus area. Each directory contains detailed explanations and solutions to the problems tackled.
 
 ```bash
-git clone https://github.com/yourusername/evm-driven-algorithms.git
+git clone https://github.com/JMSBPP/EVM_Driven_Algorithms_and_Data_Structures_Exercises.git
 cd evm-driven-algorithms
 >>>>>>> 6a3c249 (readme added)
