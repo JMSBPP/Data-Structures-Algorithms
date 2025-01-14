@@ -37,3 +37,6 @@
 [submodule "arrays/473/lib/forge-std"]
 	path = arrays/473/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "arrays/473/lib/openzeppelin-contracts"]
+	path = arrays/473/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
